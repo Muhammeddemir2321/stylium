@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
-type TeamMember = { name: string; role: string; img: string; };
+type TeamMember = { name: string; role: string; img: string };
 
 @Component({
   selector: 'app-team',
@@ -12,8 +12,8 @@ type TeamMember = { name: string; role: string; img: string; };
 })
 export class TeamComponent {
   team: TeamMember[] = [
-    { name: 'Usta 1', role: 'Berber', img: 'assets/images/team/usta1.jpg' },
-    { name: 'Usta 2', role: 'Stilist', img: 'assets/images/team/usta2.jpg' },
-    { name: 'Usta 3', role: 'Sakal Uzmanı', img: 'assets/images/team/usta3.jpg' },
+    { name: 'Mert Kaya', role: 'Fade ve modern kesim uzmanı', img: 'assets/images/gallery/foto2.jpg' },
+    { name: 'Emir Arslan', role: 'Sakal tasarımı ve sıcak havlu bakım', img: 'assets/images/gallery/foto3.jpg' },
+    { name: 'Can Demir', role: 'Klasik kesim ve final styling', img: 'assets/images/gallery/foto4.jpg' },
   ];
 }

@@ -1,14 +1,19 @@
 <div class="container">
-  <h2 class="section-title">Yorumlar</h2>
-  <p class="section-sub">Müşterilerimizin deneyimleri.</p>
+  <div class="reviews-head">
+    <span class="section-kicker">Yorumlar</span>
+    <h2 class="section-title">Randevudan çıkan his, aynadan önce belli olur.</h2>
+  </div>
 
-  <div class="grid reviews">
-    <div class="card" *ngFor="let r of reviews">
-      <div class="stars">
+  <div class="reviews">
+    <article class="review-card" *ngFor="let r of reviews">
+      <div class="stars" aria-label="5 yıldız">
         <span *ngFor="let _ of stars">★</span>
       </div>
-      <div class="text">“{{ r.text }}”</div>
-      <div class="who">{{ r.name }} • <span class="muted">{{ r.title }}</span></div>
-    </div>
+      <p>“{{ r.text }}”</p>
+      <div class="who">
+        <strong>{{ r.name }}</strong>
+        <span>{{ r.title }}</span>
+      </div>
+    </article>
   </div>
 </div>

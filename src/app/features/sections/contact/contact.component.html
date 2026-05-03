@@ -1,35 +1,56 @@
-<div class="container">
-  <h2 class="section-title">İletişim</h2>
-  <p class="section-sub">Randevu ve bilgi için bize ulaşın.</p>
+<div class="container contact">
+  <div class="contact-copy">
+    <span class="section-kicker">İletişim</span>
+    <h2 class="section-title">Randevunu seç, WhatsApp mesajını hazır gönder.</h2>
+    <p class="section-sub">Formu doldurduğunda bilgiler otomatik WhatsApp mesajına dönüşür. Böylece hızlıca saat teyidi alabilirsin.</p>
 
-  <div class="grid wrap">
-    <div class="card">
-      <div class="line"><span class="k">Adres</span><span class="v">{{ site.address }}</span></div>
-      <div class="line"><span class="k">Telefon</span><span class="v">{{ site.phoneText }}</span></div>
-      <div class="line"><span class="k">Instagram</span><a class="v" [href]="site.instagramUrl" target="_blank" rel="noopener">Profil</a></div>
-      <div class="line"><span class="k">Harita</span><a class="v" [href]="site.mapUrl" target="_blank" rel="noopener">Yol tarifi</a></div>
+    <div class="info-card">
+      <div class="line"><span>Adres</span><strong>{{ site.address }}</strong></div>
+      <div class="line"><span>Telefon</span><strong>{{ site.phoneText }}</strong></div>
+      <div class="line"><span>Instagram</span><a [href]="site.instagramUrl" target="_blank" rel="noopener">Profili Aç</a></div>
+      <div class="line"><span>Harita</span><a [href]="site.mapUrl" target="_blank" rel="noopener">Yol Tarifi</a></div>
+    </div>
+  </div>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row">
+      <label>
+        <span>Ad Soyad</span>
+        <input placeholder="Adınız" formControlName="name" />
+      </label>
+      <label>
+        <span>Telefon</span>
+        <input placeholder="+90" formControlName="phone" />
+      </label>
     </div>
 
-    <form class="card form" [formGroup]="form" (ngSubmit)="submit()">
-      <div class="row">
-        <input placeholder="Ad Soyad" formControlName="name" />
-        <input placeholder="Telefon" formControlName="phone" />
-      </div>
-
-      <div class="row">
+    <div class="row">
+      <label>
+        <span>Hizmet</span>
         <select formControlName="service">
-          <option>Saç Kesim</option>
-          <option>Sakal Tıraşı</option>
+          <option>Saç Kesimi</option>
+          <option>Sakal Bakımı</option>
           <option>Saç + Sakal</option>
-          <option>Çocuk Kesim</option>
+          <option>Çocuk Kesimi</option>
         </select>
-        <div class="row">
+      </label>
+      <div class="row compact">
+        <label>
+          <span>Tarih</span>
           <input type="date" formControlName="date" />
+        </label>
+        <label>
+          <span>Saat</span>
           <input type="time" formControlName="time" />
-        </div>
+        </label>
       </div>
+    </div>
 
-      <textarea rows="3" placeholder="Not (opsiyonel)" formControlName="note"></textarea>
+    <label>
+      <span>Not</span>
+      <textarea rows="4" placeholder="İstediğiniz stil, özel not veya uygun saat aralığı" formControlName="note"></textarea>
+    </label>
 
-      <button class="btn primary" type="submit">WhatsApp’tan Gönder</button>
-      <
+    <button class="btn primary" type="submit">WhatsApp'tan Gönder</button>
+  </form>
+</div>

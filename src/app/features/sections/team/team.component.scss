@@ -1,12 +1,57 @@
-.team { grid-template-columns: repeat(3, 1fr); }
-.person { text-align: center; }
-.avatar {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.10);
+.team {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
-.name { margin-top: 12px; font-weight: 800; }
-.role { opacity: .75; margin-top: 4px; }
-@media (max-width: 900px) { .team { grid-template-columns: 1fr; } .avatar { height: 260px; } }
+
+.member {
+  position: relative;
+  min-height: 420px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  display: block;
+  object-fit: cover;
+  filter: saturate(.92) contrast(1.04);
+}
+
+.member-info {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 8px;
+  background: rgba(8, 9, 11, .76);
+  backdrop-filter: blur(12px);
+}
+
+h3 {
+  margin: 0;
+  font-size: 21px;
+}
+
+p {
+  margin: 4px 0 0;
+  color: rgba(247, 244, 238, .72);
+}
+
+@media (max-width: 900px) {
+  .team {
+    grid-template-columns: 1fr;
+  }
+
+  .member,
+  img {
+    min-height: 340px;
+  }
+}

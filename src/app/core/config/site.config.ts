@@ -1,12 +1,18 @@
 export const SITE = {
-  brand: 'Berberium',
-  tagline: 'Tarzını yenile, kendini iyi hisset.',
+  brand: 'Stylium',
+  tagline: 'Keskin çizgi. Kusursuz bakım. Net stil.',
   city: 'İstanbul',
-  address: 'Örn: Kadıköy / İstanbul',
+  address: 'Kadıköy / İstanbul',
   phoneText: '+90 5XX XXX XX XX',
-  // wa.me için + işareti yok, sadece rakam:
   whatsappDigits: '90XXXXXXXXXX',
   instagramUrl: 'https://www.instagram.com/',
-  mapUrl: 'https://www.google.com/maps', // istersen direkt pin linkini koy
-  heroVideo: 'assets/video/hero.mp4',
+  mapUrl: 'https://www.google.com/maps',
+  heroImage: 'assets/images/gallery/foto1.jpg',
+  logoSrc: '/assets/images/logo/logo1.png',
+  navSlogan: 'Randevulu premium berber deneyimi',
+  navSlogans: [
+    'Keskin çizgi, net stil',
+    'Detayda fark, stilde imza',
+    'Randevulu premium bakım'
+  ],
 };

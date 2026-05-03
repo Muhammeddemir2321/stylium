@@ -1,23 +1,21 @@
 <footer class="footer">
-  <div class="container">
-    <div class="grid">
-      <div>
-        <div class="brand">{{ site.brand }}</div>
-        <p class="muted">{{ site.tagline }}</p>
-      </div>
-
-      <div>
-        <div class="head">İletişim</div>
-        <p class="muted">{{ site.address }}</p>
-        <p class="muted">{{ site.phoneText }}</p>
-      </div>
-
-      <div>
-        <div class="head">Sosyal</div>
-        <a class="muted" [href]="site.instagramUrl" target="_blank" rel="noopener">Instagram</a>
-      </div>
+  <div class="container footer-grid">
+    <div>
+      <div class="brand">{{ site.brand }}</div>
+      <p>{{ site.tagline }}</p>
     </div>
 
-    <div class="copy muted">© {{ year }} {{ site.brand }}</div>
+    <div>
+      <div class="head">İletişim</div>
+      <p>{{ site.address }}</p>
+      <p>{{ site.phoneText }}</p>
+    </div>
+
+    <div>
+      <div class="head">Sosyal</div>
+      <a [href]="site.instagramUrl" target="_blank" rel="noopener">Instagram</a>
+    </div>
   </div>
+
+  <div class="container copy">© {{ year }} {{ site.brand }}. Tüm hakları saklıdır.</div>
 </footer>

@@ -1,16 +1,109 @@
-.wrap { grid-template-columns: 1fr 1.2fr; gap: 18px; }
-.line { display:flex; justify-content:space-between; gap:16px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
-.k { opacity:.75; }
-.v { font-weight: 600; }
-.form input, .form select, .form textarea {
-  width: 100%;
-  padding: 12px 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(0,0,0,.25);
-  color: #fff;
-  outline: none;
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(340px, 1.1fr);
+  gap: clamp(24px, 5vw, 70px);
+  align-items: start;
 }
-.form .row { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-.muted { opacity:.7; display:block; margin-top: 10px; }
-@media (max-width: 900px) { .wrap { grid-template-columns: 1fr; } }
+
+.info-card,
+.form {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--surface-strong), var(--surface));
+  box-shadow: var(--shadow);
+}
+
+.info-card {
+  display: grid;
+  margin-top: 28px;
+  overflow: hidden;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
+  padding: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.line:first-child {
+  border-top: 0;
+}
+
+.line span {
+  color: var(--muted-2);
+}
+
+.line strong,
+.line a {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+}
+
+label span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, .22);
+  color: var(--text);
+  outline: none;
+  padding: 13px 12px;
+}
+
+:host-context(body.theme-light) input,
+:host-context(body.theme-light) select,
+:host-context(body.theme-light) textarea {
+  background: rgba(255, 255, 255, .72);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-top: 4px;
+}
+
+@media (max-width: 920px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .row,
+  .line {
+    grid-template-columns: 1fr;
+  }
+
+  .compact {
+    grid-template-columns: 1fr 1fr;
+  }
+}

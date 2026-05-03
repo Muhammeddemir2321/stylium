@@ -1,31 +1,41 @@
-<header class="nav">
+<header class="nav" [class.menu-open]="menuOpen">
   <div class="container nav-inner">
-    <a class="brand" [routerLink]="['/']" fragment="home">
-      <span class="dot"></span>
-      <span class="name">{{ site.brand }}</span>
-    </a>
+    <button class="brand" type="button" (click)="scrollTo('home')">
+      <img class="logo" [src]="logoSrc" [alt]="site.brand" (error)="onLogoError()" />
+      <span class="brand-copy">
+        <strong>{{ site.brand }}</strong>
+        <span>{{ typedText || site.navSlogan }}</span>
+      </span>
+    </button>
 
-    <nav class="links">
-      <a [routerLink]="['/']" fragment="about">Hakkımızda</a>
-      <a [routerLink]="['/']" fragment="services">Hizmetler</a>
-      <a [routerLink]="['/']" fragment="gallery">Galeri</a>
-      <a [routerLink]="['/']" fragment="team">Ekibimiz</a>
-      <a [routerLink]="['/']" fragment="reviews">Yorumlar</a>
-      <a [routerLink]="['/']" fragment="contact">İletişim</a>
+    <nav class="links" aria-label="Site menüsü">
+      <button class="nav-link" type="button" [class.active]="activeId==='about'" (click)="scrollTo('about')">Hakkımızda</button>
+      <button class="nav-link" type="button" [class.active]="activeId==='services'" (click)="scrollTo('services')">Hizmetler</button>
+      <button class="nav-link" type="button" [class.active]="activeId==='gallery'" (click)="scrollTo('gallery')">Galeri</button>
+      <button class="nav-link" type="button" [class.active]="activeId==='team'" (click)="scrollTo('team')">Ekip</button>
+      <button class="nav-link" type="button" [class.active]="activeId==='reviews'" (click)="scrollTo('reviews')">Yorumlar</button>
+      <button class="nav-link" type="button" [class.active]="activeId==='contact'" (click)="scrollTo('contact')">İletişim</button>
     </nav>
 
     <div class="right">
-      <button
-        class="icon-btn"
-        type="button"
-        (click)="toggleTheme()"
-        [attr.aria-label]="theme === 'dark' ? 'Açık tema' : 'Koyu tema'"
-        [attr.title]="theme === 'dark' ? 'Açık tema' : 'Koyu tema'">
-        <span *ngIf="theme === 'dark'">☀️</span>
-        <span *ngIf="theme === 'light'">🌙</span>
+      <button class="icon-btn" type="button" (click)="toggleTheme()" [attr.aria-label]="theme === 'dark' ? 'Açık tema' : 'Koyu tema'">
+        <span *ngIf="theme === 'dark'">☀</span>
+        <span *ngIf="theme === 'light'">◐</span>
       </button>
-
-      <button class="btn primary" (click)="openWhatsApp()">WhatsApp Randevu</button>
+      <button class="btn primary cta" type="button" (click)="openWhatsApp()">Randevu</button>
+      <button class="menu-btn" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Menü">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
+
+  <nav class="mobile-links" aria-label="Mobil menü">
+    <button type="button" (click)="scrollTo('about')">Hakkımızda</button>
+    <button type="button" (click)="scrollTo('services')">Hizmetler</button>
+    <button type="button" (click)="scrollTo('gallery')">Galeri</button>
+    <button type="button" (click)="scrollTo('team')">Ekip</button>
+    <button type="button" (click)="scrollTo('reviews')">Yorumlar</button>
+    <button type="button" (click)="scrollTo('contact')">İletişim</button>
+  </nav>
 </header>

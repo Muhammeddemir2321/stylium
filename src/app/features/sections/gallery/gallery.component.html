@@ -1,10 +1,16 @@
 <div class="container">
-  <h2 class="section-title">Galeri</h2>
-  <p class="section-sub">Son çalışmalarımızdan seçmeler.</p>
+  <div class="gallery-head">
+    <div>
+      <span class="section-kicker">Galeri</span>
+      <h2 class="section-title">Detay çizgisi, geçiş kalitesi ve gerçek salon dokusu.</h2>
+    </div>
+    <p class="section-sub">Son çalışmalardan seçilen kareler. Görsellere tıklayarak büyük halde inceleyebilirsin.</p>
+  </div>
 
-  <div class="grid gallery">
-    <a class="tile" *ngFor="let img of images" [href]="img" target="_blank" rel="noopener">
-      <img [src]="img" alt="Galeri" loading="lazy" />
+  <div class="gallery">
+    <a class="tile" *ngFor="let img of images; let i = index" [class.featured]="i === 0" [href]="img" target="_blank" rel="noopener">
+      <img [src]="img" alt="Stylium berber çalışması" loading="lazy" />
+      <span>0{{ i + 1 }}</span>
     </a>
   </div>
 </div>

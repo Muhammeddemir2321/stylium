@@ -10,11 +10,11 @@ import { CommonModule } from '@angular/common';
 })
 export class GalleryComponent {
   images: string[] = [
-    'assets/images/gallery/1.jpg',
-    'assets/images/gallery/2.jpg',
-    'assets/images/gallery/3.jpg',
-    'assets/images/gallery/4.jpg',
-    'assets/images/gallery/5.jpg',
-    'assets/images/gallery/6.jpg',
+    'assets/images/gallery/foto1.jpg',
+    'assets/images/gallery/foto2.jpg',
+    'assets/images/gallery/foto3.jpg',
+    'assets/images/gallery/foto4.jpg',
+    'assets/images/gallery/foto5.jpg',
+    'assets/images/gallery/foto6.jpg',
   ];
 }

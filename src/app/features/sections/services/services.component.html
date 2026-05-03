@@ -1,15 +1,30 @@
-<div class="container">
-  <h2 class="section-title">Hizmetler</h2>
-  <p class="section-sub">Size en uygun hizmeti seçin.</p>
+<div class="container services">
+  <div class="head">
+    <span class="section-kicker">Hizmetler</span>
+    <h2 class="section-title">Kısa sürede temiz çizgi, uzun süre iyi his.</h2>
+    <p class="section-sub">En çok tercih edilen bakım paketleri. Kartlara dokunarak WhatsApp üzerinden hızlı randevu alabilirsin.</p>
+  </div>
 
-  <div class="grid list">
-    <div class="card item" *ngFor="let s of services">
-      <div class="top">
-        <h3>{{ s.name }}</h3>
-        <span class="pill">{{ s.durationMin }} dk</span>
+  <div class="cards">
+    <article class="service-card"
+             *ngFor="let s of services; let i = index; trackBy: trackByName"
+             (mousemove)="onCardMove($event)"
+             (mouseleave)="onCardLeave($event)"
+             (click)="openWhatsAppFor(s.name)"
+             role="button"
+             tabindex="0">
+      <div class="icon" aria-hidden="true">
+        <span *ngIf="iconKey(i) === 'scissors'">✂</span>
+        <span *ngIf="iconKey(i) === 'razor'">▰</span>
+        <span *ngIf="iconKey(i) === 'combo'">＋</span>
       </div>
-      <p class="muted">{{ s.desc }}</p>
-      <div class="price">{{ s.priceText }}</div>
-    </div>
+      <div class="duration">{{ s.durationMin }} dk</div>
+      <h3>{{ s.name }}</h3>
+      <p>{{ s.desc }}</p>
+      <div class="bottom">
+        <strong>{{ s.priceText }}</strong>
+        <button type="button" (click)="$event.stopPropagation(); openWhatsAppFor(s.name)">Randevu Al</button>
+      </div>
+    </article>
   </div>
 </div>

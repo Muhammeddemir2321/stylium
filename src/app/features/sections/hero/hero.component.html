@@ -1,18 +1,45 @@
 <div class="hero">
-  <video class="bg" autoplay muted loop playsinline>
-    <source [src]="site.heroVideo" type="video/mp4" />
-  </video>
+  <img class="hero-media" [src]="site.heroImage" alt="Stylium berber salonu atmosferi" />
+  <div class="shade"></div>
 
-  <div class="overlay"></div>
+  <div class="container hero-grid">
+    <div class="copy">
+      <div class="badge">Premium Berber Deneyimi · {{ site.city }}</div>
+      <h1>{{ site.tagline }}</h1>
+      <p>
+        Modern saç kesimi, sıcak havlu sakal bakımı ve kişiye özel stil danışmanlığını
+        randevulu, hijyenik ve sakin bir salon deneyimiyle sunuyoruz.
+      </p>
 
-  <div class="container content">
-    <div class="badge">📍 {{ site.city }}</div>
-    <h1 class="title">{{ site.tagline }}</h1>
-    <p class="desc">Profesyonel kesim • Hijyen • Modern stil</p>
-
-    <div class="actions">
-      <button class="btn primary" (click)="openWhatsApp()">WhatsApp’tan Randevu</button>
-      <a class="btn" href="#gallery">İşlerimize Bak</a>
+      <div class="actions">
+        <button class="btn primary" type="button" (click)="openWhatsApp()">Randevu Al</button>
+        <a class="btn" href="#gallery">Çalışmaları Gör</a>
+      </div>
     </div>
+
+    <aside class="booking-panel" aria-label="Salon özeti">
+      <div class="panel-top">
+        <span>Bugün</span>
+        <strong>09:00 - 22:00</strong>
+      </div>
+      <div class="quick-stats">
+        <div>
+          <strong>4.9</strong>
+          <span>ortalama puan</span>
+        </div>
+        <div>
+          <strong>45 dk</strong>
+          <span>komple bakım</span>
+        </div>
+      </div>
+      <div class="service-row">
+        <span>Saç + Sakal</span>
+        <b>Randevulu</b>
+      </div>
+      <div class="service-row">
+        <span>Cilt ve sakal bakımı</span>
+        <b>Premium</b>
+      </div>
+    </aside>
   </div>
 </div>

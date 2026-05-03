@@ -1,12 +1,15 @@
 <div class="container">
-  <h2 class="section-title">Ekibimiz</h2>
-  <p class="section-sub">Tarzına en uygun kesim için buradayız.</p>
+  <span class="section-kicker">Ekip</span>
+  <h2 class="section-title">Kesimi sadece kısaltma değil, imza gibi görüyoruz.</h2>
+  <p class="section-sub">Her usta farklı bir uzmanlık alanında çalışır; sonuç ise aynı standartta temiz ve net görünür.</p>
 
-  <div class="grid team">
-    <div class="card person" *ngFor="let p of team">
-      <img class="avatar" [src]="p.img" alt="Ekip" loading="lazy" />
-      <div class="name">{{ p.name }}</div>
-      <div class="role">{{ p.role }}</div>
-    </div>
+  <div class="team">
+    <article class="member" *ngFor="let p of team">
+      <img [src]="p.img" [alt]="p.name" loading="lazy" />
+      <div class="member-info">
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.role }}</p>
+      </div>
+    </article>
   </div>
 </div>

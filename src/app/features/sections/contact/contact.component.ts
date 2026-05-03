@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SITE } from '../../../core/config/site.config';
 import { buildWhatsAppUrl } from '../../../core/utils/whatsapp.util';
@@ -17,7 +17,7 @@ export class ContactComponent {
   form = new FormBuilder().group({
     name: ['', [Validators.required, Validators.minLength(2)]],
     phone: ['', [Validators.required]],
-    service: ['Saç Kesim', [Validators.required]],
+    service: ['Saç Kesimi', [Validators.required]],
     date: [''],
     time: [''],
     note: ['']
@@ -29,14 +29,13 @@ export class ContactComponent {
       return;
     }
 
-    const v = this.form.getRawValue();
-    const msg =
-`Merhaba! ${this.site.brand} için randevu almak istiyorum.
-Ad: ${v.name}
-Telefon: ${v.phone}
-Hizmet: ${v.service}
-Tarih/Saat: ${v.date || '-'} ${v.time || '-'}
-Not: ${v.note || '-'}`;
+    const value = this.form.getRawValue();
+    const msg = `Merhaba! ${this.site.brand} için randevu almak istiyorum.
+Ad: ${value.name}
+Telefon: ${value.phone}
+Hizmet: ${value.service}
+Tarih/Saat: ${value.date || '-'} ${value.time || '-'}
+Not: ${value.note || '-'}`;
 
     window.open(buildWhatsAppUrl(this.site.whatsappDigits, msg), '_blank', 'noopener,noreferrer');
   }
