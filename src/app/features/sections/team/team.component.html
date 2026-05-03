@@ -1,0 +1,12 @@
+<div class="container">
+  <h2 class="section-title">Ekibimiz</h2>
+  <p class="section-sub">Tarzına en uygun kesim için buradayız.</p>
+
+  <div class="grid team">
+    <div class="card person" *ngFor="let p of team">
+      <img class="avatar" [src]="p.img" alt="Ekip" loading="lazy" />
+      <div class="name">{{ p.name }}</div>
+      <div class="role">{{ p.role }}</div>
+    </div>
+  </div>
+</div>

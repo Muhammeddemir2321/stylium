@@ -1,0 +1,10 @@
+<div class="container">
+  <h2 class="section-title">Galeri</h2>
+  <p class="section-sub">Son çalışmalarımızdan seçmeler.</p>
+
+  <div class="grid gallery">
+    <a class="tile" *ngFor="let img of images" [href]="img" target="_blank" rel="noopener">
+      <img [src]="img" alt="Galeri" loading="lazy" />
+    </a>
+  </div>
+</div>

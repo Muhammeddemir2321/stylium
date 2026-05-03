@@ -1,0 +1,6 @@
+.reviews { grid-template-columns: repeat(3, 1fr); }
+.stars { letter-spacing: 2px; opacity: .9; margin-bottom: 10px; }
+.text { opacity: .85; line-height: 1.6; }
+.who { margin-top: 12px; font-weight: 700; }
+.muted { opacity: .7; font-weight: 600; }
+@media (max-width: 900px) { .reviews { grid-template-columns: 1fr; } }

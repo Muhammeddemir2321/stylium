@@ -1,0 +1,15 @@
+<div class="container">
+  <h2 class="section-title">Hizmetler</h2>
+  <p class="section-sub">Size en uygun hizmeti seçin.</p>
+
+  <div class="grid list">
+    <div class="card item" *ngFor="let s of services">
+      <div class="top">
+        <h3>{{ s.name }}</h3>
+        <span class="pill">{{ s.durationMin }} dk</span>
+      </div>
+      <p class="muted">{{ s.desc }}</p>
+      <div class="price">{{ s.priceText }}</div>
+    </div>
+  </div>
+</div>

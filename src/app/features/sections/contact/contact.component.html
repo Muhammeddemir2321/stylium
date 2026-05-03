@@ -1,0 +1,35 @@
+<div class="container">
+  <h2 class="section-title">İletişim</h2>
+  <p class="section-sub">Randevu ve bilgi için bize ulaşın.</p>
+
+  <div class="grid wrap">
+    <div class="card">
+      <div class="line"><span class="k">Adres</span><span class="v">{{ site.address }}</span></div>
+      <div class="line"><span class="k">Telefon</span><span class="v">{{ site.phoneText }}</span></div>
+      <div class="line"><span class="k">Instagram</span><a class="v" [href]="site.instagramUrl" target="_blank" rel="noopener">Profil</a></div>
+      <div class="line"><span class="k">Harita</span><a class="v" [href]="site.mapUrl" target="_blank" rel="noopener">Yol tarifi</a></div>
+    </div>
+
+    <form class="card form" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="row">
+        <input placeholder="Ad Soyad" formControlName="name" />
+        <input placeholder="Telefon" formControlName="phone" />
+      </div>
+
+      <div class="row">
+        <select formControlName="service">
+          <option>Saç Kesim</option>
+          <option>Sakal Tıraşı</option>
+          <option>Saç + Sakal</option>
+          <option>Çocuk Kesim</option>
+        </select>
+        <div class="row">
+          <input type="date" formControlName="date" />
+          <input type="time" formControlName="time" />
+        </div>
+      </div>
+
+      <textarea rows="3" placeholder="Not (opsiyonel)" formControlName="note"></textarea>
+
+      <button class="btn primary" type="submit">WhatsApp’tan Gönder</button>
+      <

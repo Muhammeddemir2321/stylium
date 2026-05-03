@@ -1,0 +1,6 @@
+.list { grid-template-columns: repeat(3, 1fr); }
+.item .top { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.pill { opacity:.8; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06); }
+.muted { opacity:.75; }
+.price { margin-top: 10px; font-weight: 800; }
+@media (max-width: 900px) { .list { grid-template-columns: 1fr; } }

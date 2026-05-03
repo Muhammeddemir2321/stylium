@@ -1,0 +1,18 @@
+<div class="hero">
+  <video class="bg" autoplay muted loop playsinline>
+    <source [src]="site.heroVideo" type="video/mp4" />
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="container content">
+    <div class="badge">📍 {{ site.city }}</div>
+    <h1 class="title">{{ site.tagline }}</h1>
+    <p class="desc">Profesyonel kesim • Hijyen • Modern stil</p>
+
+    <div class="actions">
+      <button class="btn primary" (click)="openWhatsApp()">WhatsApp’tan Randevu</button>
+      <a class="btn" href="#gallery">İşlerimize Bak</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" [routerLink]="['/']" fragment="home">
+      <span class="dot"></span>
+      <span class="name">{{ site.brand }}</span>
+    </a>
+
+    <nav class="links">
+      <a [routerLink]="['/']" fragment="about">Hakkımızda</a>
+      <a [routerLink]="['/']" fragment="services">Hizmetler</a>
+      <a [routerLink]="['/']" fragment="gallery">Galeri</a>
+      <a [routerLink]="['/']" fragment="team">Ekibimiz</a>
+      <a [routerLink]="['/']" fragment="reviews">Yorumlar</a>
+      <a [routerLink]="['/']" fragment="contact">İletişim</a>
+    </nav>
+
+    <div class="right">
+      <button
+        class="icon-btn"
+        type="button"
+        (click)="toggleTheme()"
+        [attr.aria-label]="theme === 'dark' ? 'Açık tema' : 'Koyu tema'"
+        [attr.title]="theme === 'dark' ? 'Açık tema' : 'Koyu tema'">
+        <span *ngIf="theme === 'dark'">☀️</span>
+        <span *ngIf="theme === 'light'">🌙</span>
+      </button>
+
+      <button class="btn primary" (click)="openWhatsApp()">WhatsApp Randevu</button>
+    </div>
+  </div>
+</header>
