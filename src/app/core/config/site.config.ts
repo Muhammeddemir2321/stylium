@@ -7,7 +7,7 @@ export const SITE = {
   whatsappDigits: '90XXXXXXXXXX',
   instagramUrl: 'https://www.instagram.com/',
   mapUrl: 'https://www.google.com/maps',
-  heroImage: 'assets/images/gallery/foto1.jpg',
+  heroVideo: 'assets/video/hero.mp4',
   logoSrc: '/assets/images/logo/logo1.png',
   navSlogan: 'Randevulu premium berber deneyimi',
   navSlogans: [
