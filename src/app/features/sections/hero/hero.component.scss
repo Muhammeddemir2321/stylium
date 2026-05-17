@@ -93,7 +93,10 @@ p {
 }
 
 .panel-top strong {
+    display: block;
+  margin-bottom: 4px;
   font-size: 24px;
+  color: var(--gold);
 }
 
 .quick-stats {

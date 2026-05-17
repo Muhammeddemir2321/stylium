@@ -2,15 +2,67 @@
   <div class="gallery-head">
     <div>
       <span class="section-kicker">Galeri</span>
-      <h2 class="section-title">Detay çizgisi, geçiş kalitesi ve gerçek salon dokusu.</h2>
+      <h2 class="section-title">Tüm çalışmalar, kategorilere ayrılmış tek galeri ekranında.</h2>
     </div>
-    <p class="section-sub">Son çalışmalardan seçilen kareler. Görsellere tıklayarak büyük halde inceleyebilirsin.</p>
+    <p class="section-sub">
+      Fotoğrafa tıklandığında sayfadan çıkmadan büyük görünüm açılır. Oklarla veya klavye yön tuşlarıyla gezebilirsin.
+    </p>
   </div>
 
-  <div class="gallery">
-    <a class="tile" *ngFor="let img of images; let i = index" [class.featured]="i === 0" [href]="img" target="_blank" rel="noopener">
-      <img [src]="img" alt="Stylium berber çalışması" loading="lazy" />
-      <span>0{{ i + 1 }}</span>
-    </a>
+  <div class="gallery-screen">
+    <div class="toolbar">
+      <div class="filters" aria-label="Galeri kategorileri">
+        <button
+          type="button"
+          *ngFor="let filter of filters"
+          [class.active]="activeCategory === filter.key"
+          (click)="setCategory(filter.key)">
+          {{ filter.label }}
+        </button>
+      </div>
+
+      <div class="count">{{ filteredItems.length }} fotoğraf</div>
+    </div>
+
+    <div class="gallery">
+      <button
+        class="tile"
+        type="button"
+        *ngFor="let item of filteredItems; let i = index; trackBy: trackByTitle"
+        [class.featured]="i === 0 && activeCategory === 'all'"
+        (click)="openDialog(i)">
+        <img [src]="item.src" [alt]="item.title" loading="lazy" />
+        <span class="tag">{{ item.categoryLabel }}</span>
+        <div class="tile-info">
+          <strong>{{ item.title }}</strong>
+          <small>{{ item.description }}</small>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="lightbox"
+  *ngIf="selectedItem as item"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-label]="item.title"
+  (click)="closeDialog()">
+  <div class="dialog" (click)="$event.stopPropagation()">
+    <button class="close" type="button" aria-label="Galeriyi kapat" (click)="closeDialog()">×</button>
+
+    <button class="nav prev" type="button" aria-label="Önceki fotoğraf" (click)="previous($event)">‹</button>
+    <img class="dialog-image" [src]="item.src" [alt]="item.title" />
+    <button class="nav next" type="button" aria-label="Sonraki fotoğraf" (click)="next($event)">›</button>
+
+    <div class="dialog-footer">
+      <div>
+        <span>{{ item.categoryLabel }}</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+      <strong>{{ (selectedIndex ?? 0) + 1 }} / {{ filteredItems.length }}</strong>
+    </div>
   </div>
 </div>
